@@ -1,0 +1,24 @@
+[store]
+[store.primary]
+connection = "postgresql://graph-node:dTsUGGhwurWFT6pDxesD@postgres:5432/graph-node"
+pool_size = 10
+
+[deployment]
+[[deployment.rule]]
+store = "primary"
+indexers = [ "default" ]
+
+[chains]
+ingestor = "default"
+
+[chains.goerli]
+shard = "primary"
+provider = [
+  { label = "goerli", url="https://endpoints.omniatech.io/v1/eth/goerli/public", features = [] }
+]
+
+[chains.mumbai]
+shard = "primary"
+provider = [
+  { label = "mumbai", url="https://polygon-mumbai.api.onfinality.io/public", features = [] }
+]
